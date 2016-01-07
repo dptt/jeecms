@@ -1,0 +1,42 @@
+<head>
+    <style type="text/css">
+        .focusList_big_image {width: 900px; height: 390px;margin-left: 176px}
+
+    </style>
+</head>
+<div class="type_focus" style="padding-top: 10px;">
+    <div class="w1240">
+        [#if channel??]
+        [#assign channel_id=channel.id /]
+        [#else]
+        <!--//首页设置所有的channel id-->
+        [#assign channel_id="76,77,78,79,80,81,82,83,84,85,86,87" /]
+        [/#if]
+
+        <div class="tip" id="focusTip">
+            <ul>
+                [@cms_content_list count='10' orderBy='8' titLen='10' channelId="${channel_id}" channelOption='1']
+                [#list tag_list as a]
+                <li class="tab${a_index} navigation">
+                    <a href="${a.url} target="_blank""><img src="${a.titleImg!site.defImg}" width="100"  height="50"></a>
+                </li>
+                [/#list]
+                [/@cms_content_list]
+            </ul>
+        </div>
+        <div class="list" id="focusList">
+            <ul>
+                [@cms_content_list count='10' orderBy='8' titLen='10' channelId="${channel_id}" channelOption='1']
+                [#list tag_list as a]
+                <li>
+                    <a href="${a.url}"  target="_blank">
+                    <img class="focusList_big_image" src="${a.titleImg!site.defImg}" alt="${a.title}">
+                    </a>
+                </li>
+                [/#list]
+                [/@cms_content_list]
+            </ul>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE,chrome=1"/>
+    <title>好看的电影-最新电影-经典电影-电影电影推荐-第1页-苹果CMS</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+
+
+    [#include "../tencent_include/home_include.html"/]
+    <link href="/${res}/tencent_css/v280_type.css" rel="stylesheet"/>
+    <script src="/${res}/tencent_js/v280_picShow.js" type="text/javascript" language="javascript"></script>
+    <link href="/${res}/tencent_css/v280_list.css" rel="stylesheet" type="text/css"/>
+    <script language="javascript">
+        function submit1() {
+            $("#submitSearchMode").val(4);
+            $("#submitform").submit();
+        }
+
+        function submit2() {
+            $("#submitSearchMode").val(9);
+            $("#submitform").submit();
+        }
+        function submit2() {
+            $("#submitSearchMode").val(13);
+            $("#submitform").submit();
+        }
+    </script>
+
+    <!--//定制网页内样式，覆盖掉v280里一些冲突样式效果-->
+    <style type="text/css">
+        .clear {clear: both}
+        .pagesite{font-size: medium; letter-spacing: normal}
+    </style>
+
+</head>
+<body>
+
+[#include "../tencent_include/home_head.html"/]
+
+<div class="container" style="padding-top: 125px;">
+    <div class="nvc">
+        <dl>
+            <dt>
+                <span>当前位置</span>
+                <i class="arrow"><b class="a_outer"></b><b class="a_inner"></b></i>
+            </dt>
+            <dd><a href='${site.url}'>首页</a>&nbsp;&nbsp;&raquo;&nbsp;&nbsp;
+                [#if channel.parent??]
+                <a href='${channel.parent.url}'>${channel.parent.channelExt.name}</a>&nbsp;&nbsp;&raquo;&nbsp;&nbsp;
+                [/#if]
+                <a href='${channel.url}'>${channel.channelExt.name}</a>
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+<div class="container">
+    <div class="r" style="overflow: visible; width: 1300px">
+        <form id="submitform" action="videolist.jspx">
+            <div class="mod_toolbar">
+                <ul>
+                    <input type="hidden" name="channelId" value="${channel.id}"/>
+                    <input id="submitSearchMode" type="hidden" name="searchMode" value="1"/>
+                    <li><input type="submit" onclick="submit1()" value="最新更新"/>"</li>
+                    <li><input type="submit" onclick="submit2()" value="最近热播"/>"</li>
+                    <li><input type="submit" onclick="submit3()" value="最受好评"/>"</li>
+
+                </ul>
+            </div>
+        </form>
+
+        [#include "../include/inc_video_page.html"/]
+
+
+    </div>
+</div>
+
+
+[#include "../tencent_include/home_foot.html"/]
+</body>
+</html>

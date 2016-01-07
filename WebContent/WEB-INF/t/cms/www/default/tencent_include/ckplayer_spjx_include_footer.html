@@ -1,0 +1,49 @@
+<script src="${resSys}/spjx/player/player.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var sun = 0
+    function loadedHandler() {
+        CKobject.getObjectById('ckplayer_a1').addListener('error', 'errorHandler');
+        CKobject.getObjectById('ckplayer_a1').addListener('sendNetStream', 'playHandler');
+    }
+    function playHandler() {
+        CKobject.getObjectById('ckplayer_a1').play;
+        sun = 0;
+    }
+    function errorHandler() {
+        sun = sun + 1;
+        if (sun < 3) {
+            player();
+        } else {
+            sun = 0;
+            var err = '�������Ի���:\n\n';
+            err = err + '˵��������ʹ�����ǵĽ�����\n\n\n';
+            err = err + '���ܵ��µ�ԭ��\n\n';
+            err = err + '�ٲ�������\n\n';
+            err = err + '�����ô���\n\n';
+            err = err + '�۷�������֧�֡�\n\n\n';
+            err = err + '����ϵQQ:122475170���BUG��\n\n';
+            err = err + '��ӭ�����շѽ�����';
+            alert(err);
+        }
+    }
+//    http://localhost/spjx/index.php?v=http://v.youku.com/v_show/id_XMTMxNjQxMzY1Mg==.html?f=26018944&ev=1
+    function player() {
+        var str = document.getElementById("videopath").value;
+        console.log(str);
+        if (str != '') {
+            var flashvars = {
+                f:'http://localhost/spjx/api/deng.php?ckid='+str,
+                s: 2, c: 0, p: 1, loaded: 'loadedHandler', my_url: encodeURIComponent(window.location.href)
+            };
+            var params = {bgcolor: '#FFF', allowFullScreen: true, allowScriptAccess: 'always', wmode: 'transparent'};
+            CKobject.embedSWF('${resSys}/spjx/player/player.swf', 'ckplayerContainer', 'ckplayer_a1', '985', '554', flashvars, params);
+        } else {
+            alert("video path is null");
+        }
+    }
+    player();
+    function tv(data) {
+        document.getElementById("u").value = data + '.tv';
+        player();
+    }
+</script>

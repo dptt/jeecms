@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>全文检索列表 - ${site.name} - Powered by ndmxw</title>
+    [#include "../tencent_include/home_include.html"/]
+    <link href="/${res}/tencent_css/v280_type.css" rel="stylesheet"/>
+    <script src="/${res}/tencent_js/v280_picShow.js" type="text/javascript" language="javascript"></script>
+    <link href="/${res}/tencent_css/v280_list.css" rel="stylesheet" type="text/css"/>
+
+    <!--//定制网页内样式，覆盖掉v280里一些冲突样式效果-->
+    <style type="text/css">
+        .clear {clear: both}
+        .pagesite{font-size: medium; letter-spacing: normal}
+    </style>
+
+    [#if searchType?? && searchType == 1]
+    <link href="${resSys}/front.css" rel="stylesheet" type="text/css"/>
+    <link href="${resSys}/jqueryUI/jquery.ui.css" rel="stylesheet" type="text/css"/>
+    <script src="${resSys}/jquery.js" type="text/javascript"></script>
+    <script src="${resSys}/jqueryUI/jquery-ui.js" type="text/javascript"></script>
+
+    <script src="${resSys}/front.js" type="text/javascript"></script>
+    <script src="/${res}/js/common.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+    <script src="${resSys}/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <link href="/${res}/css/html5.css" rel="stylesheet" type="text/css"/>
+    [/#if]
+</head>
+
+<body>
+
+[#include "../tencent_include/home_head.html"/]
+
+<div class="container" style="padding-top: 125px;">
+
+[#if searchType?? && searchType == 3]
+    [#include "../search/inc_searchtype_video.html"/]
+[/#if]
+
+[#if searchType?? && searchType == 1]
+    [#include "../search/inc_searchtype_topic.html"/]
+
+  	[#include "../include/right1.html"/]
+	[#include "../include/friend_link.html"/]
+[/#if]
+</div>
+
+[#include "../tencent_include/home_foot.html"/]
+
+</body>
+</html>
